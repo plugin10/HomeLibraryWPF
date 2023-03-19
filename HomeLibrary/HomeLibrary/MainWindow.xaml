@@ -37,7 +37,8 @@
 
             <StackPanel Grid.Row="1">
 
-                <RadioButton Content="Dostepne"
+                <RadioButton Name="AvailableButton"
+                             Content="Dostepne"
                              Height="50"
                              Foreground="White"
                              FontSize="14"
@@ -45,7 +46,8 @@
                              IsChecked="True"
                              Command="{Binding ShowAvailableBooksCommand}"/>
 
-                <RadioButton Content="Oczekujace"
+                <RadioButton Name="UnavailableButton"
+                             Content="Oczekujace"
                              Height="50"
                              Foreground="White"
                              FontSize="14"
