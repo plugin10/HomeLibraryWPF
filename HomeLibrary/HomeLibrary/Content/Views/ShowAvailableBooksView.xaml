@@ -9,61 +9,30 @@
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <Grid.RowDefinitions>
-            <RowDefinition Height="75"/>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
+        <DataGrid Name="BooksDataGrid"
+                  Background="#2F2F2F"
+                  Foreground="White">
 
-        <Border BorderBrush="{x:Null}" 
-                Height="70" 
-                Width="100">
-            <TextBlock Foreground="White"
-                       FontSize="16"
-                       TextWrapping="Wrap" 
-                       Text="PHOTO"
-                       VerticalAlignment="Center"
-                       TextAlignment="Center"/>
-        </Border>
+            <DataGrid.Resources>
+                <Style TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="Background" Value="#3F3F3F"/>
+                    <Setter Property="Foreground" Value="White"/>
+                </Style>
+                <Style TargetType="DataGridCell">
+                    <Setter Property="Background" Value="#2F2F2F"/>
+                    <Setter Property="Foreground" Value="White"/>
+                </Style>
+            </DataGrid.Resources>
 
-        <Border BorderBrush="{x:Null}" 
-                Height="70" 
-                Width="100"
-                Grid.Column="1">
-            <TextBlock Foreground="White"
-                       FontSize="16"
-                       TextWrapping="Wrap" 
-                       Text="TITLE"
-                       VerticalAlignment="Center"
-                       TextAlignment="Center"/>
-        </Border>
-
-        <Border BorderBrush="{x:Null}" 
-                Height="70" 
-                Width="100"
-                Grid.Column="2">
-            <TextBlock Foreground="White"
-                       FontSize="16"
-                       TextWrapping="Wrap" 
-                       Text="AUTHOR"
-                       VerticalAlignment="Center"
-                       TextAlignment="Center"/>
-        </Border>
-
-        <Border BorderBrush="{x:Null}" 
-                Height="70" 
-                Width="100"
-                Grid.Column="3">
-            <TextBlock Foreground="White"
-                       FontSize="16"
-                       TextWrapping="Wrap" 
-                       Text="OWNER"
-                       VerticalAlignment="Center"
-                       TextAlignment="Center"/>
-        </Border>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Photo" Binding="{Binding Photo}" Width="*"/>
+                <DataGridTextColumn Header="Title" Binding="{Binding Title}" Width="*"/>
+                <DataGridTextColumn Header="Author" Binding="{Binding Author}" Width="*"/>
+                <DataGridTextColumn Header="Owner" Binding="{Binding Owner}" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        
     </Grid>
 </UserControl>
