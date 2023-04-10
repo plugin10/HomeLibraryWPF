@@ -1,4 +1,6 @@
-﻿using System;
+﻿using HomeLibrary.Content.Models;
+using HomeLibrary.Content.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace HomeLibrary.Content.Views
 {
@@ -23,6 +26,16 @@ namespace HomeLibrary.Content.Views
         public ShowUnavailableBooksView()
         {
             InitializeComponent();
+
+            ShowAvailableBooksViewModel test = new ShowAvailableBooksViewModel();
+
+            foreach (Book book in test.books)
+            {
+                if (book.IsAvailable == false)
+                {
+                    BooksDataGrid.Items.Add(book);
+                }
+            }
         }
     }
 }

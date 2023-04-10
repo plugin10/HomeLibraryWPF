@@ -7,11 +7,28 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <TextBlock Text="some books to"
-                   FontSize="16"
-                   Foreground="White"
-                   Margin="20"
-                   Height="40"
-                   Width="110"/>
+        <DataGrid Name="BooksDataGrid"
+                  Background="#2F2F2F"
+                  Foreground="White">
+
+            <DataGrid.Resources>
+                <Style TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="Background" Value="#3F3F3F"/>
+                    <Setter Property="Foreground" Value="White"/>
+                </Style>
+                <Style TargetType="DataGridCell">
+                    <Setter Property="Background" Value="#2F2F2F"/>
+                    <Setter Property="Foreground" Value="White"/>
+                </Style>
+            </DataGrid.Resources>
+
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Photo" Binding="{Binding Photo}" Width="*"/>
+                <DataGridTextColumn Header="Title" Binding="{Binding Title}" Width="*"/>
+                <DataGridTextColumn Header="Author" Binding="{Binding Author}" Width="*"/>
+                <DataGridTextColumn Header="Owner" Binding="{Binding Owner}" Width="*"/>
+                <DataGridTextColumn Header="Borrower" Binding="{Binding Borrower}" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </UserControl>

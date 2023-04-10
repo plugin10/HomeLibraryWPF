@@ -1,4 +1,5 @@
 ﻿using HomeLibrary.Content.Models;
+using HomeLibrary.Content.ViewModels;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -27,19 +28,14 @@ namespace HomeLibrary.Content.Views
         {
             InitializeComponent();
 
-            Loaded += UserControl_Loaded;
+            ShowAvailableBooksViewModel test = new ShowAvailableBooksViewModel();
 
-        }
-
-        private void UserControl_Loaded(object sender, RoutedEventArgs e)
-        {
-            string json = File.ReadAllText(@"../../../Data/db.json");
-            List<Book> books = JsonConvert.DeserializeObject<List<Book>>(json);
-            List<Book> availableBooks = new List<Book>();
-            foreach (Book book in books)
+            foreach (Book book in test.books)
             {
-                availableBooks.Add(book);
-                BooksDataGrid.Items.Add(book);
+                if (book.IsAvailable == true)
+                {
+                    BooksDataGrid.Items.Add(book);
+                }
             }
         }
     }

@@ -4,13 +4,17 @@
             "photo": "photoTest1",
             "title": "titleTest1",
             "author": "authorTest1",
-            "owner": "ownerTest1"
+            "owner": "ownerTest1",
+            "isAvailable": true,
+            "borrower": null
         },
         {
             "id": 2,
             "photo": "photoTest2",
             "title": "titleTest2",
             "author": "authorTest2",
-            "owner": "ownerTest2"
+            "owner": "ownerTest2",
+            "isAvailable": false,
+            "borrower": "borrowerTest2"
         }
     ]

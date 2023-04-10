@@ -23,5 +23,11 @@ namespace HomeLibrary.Content.Models
 
         [JsonProperty("owner")]
         public string Owner { get; set; }
+
+        [JsonProperty("isAvailable")]
+        public bool IsAvailable { get; set; }
+
+        [JsonProperty("borrower")]
+        public string? Borrower { get; set; }
     }
 }
