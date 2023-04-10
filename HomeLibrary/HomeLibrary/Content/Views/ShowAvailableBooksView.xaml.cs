@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using HomeLibrary.Content.Models;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -41,23 +42,5 @@ namespace HomeLibrary.Content.Views
                 BooksDataGrid.Items.Add(book);
             }
         }
-    }
-
-    public class Book
-    {
-        [JsonProperty("id")]
-        public int Id { get; set; }
-
-        [JsonProperty("photo")]
-        public string Photo { get; set; }
-
-        [JsonProperty("title")]
-        public string Title { get; set; }
-
-        [JsonProperty("author")]
-        public string Author { get; set; }
-
-        [JsonProperty("owner")]
-        public string Owner { get; set; }
     }
 }
