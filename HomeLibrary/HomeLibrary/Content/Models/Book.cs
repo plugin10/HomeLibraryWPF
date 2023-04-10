@@ -10,7 +10,7 @@ namespace HomeLibrary.Content.Models
     public class Book
     {
         [JsonProperty("id")]
-        public int Id { get; set; }
+        public Guid Id { get; set; }
 
         [JsonProperty("photo")]
         public string Photo { get; set; }

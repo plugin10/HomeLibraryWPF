@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HomeLibrary.Content.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,25 @@ namespace HomeLibrary.Content.Viues
         public BookAddView()
         {
             InitializeComponent();
+        }
+
+        private void AcceptButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (ownerInput.GetValue(TextBox.TextProperty) != null && titleInput.GetValue(TextBox.TextProperty) != null && authorInput.GetValue(TextBox.TextProperty) != null)
+            {
+                Book newBook = new Book
+                {
+                    Id = Guid.NewGuid(),
+                    Owner = ownerInput.Text,
+                    Title = titleInput.Text,
+                    Author = authorInput.Text,
+                    IsAvailable = true
+                };
+            }
+            else
+            {
+                MessageBox.Show("Please fill all fields");
+            }
         }
     }
 }

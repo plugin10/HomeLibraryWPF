@@ -9,7 +9,7 @@
     <Grid>
         <StackPanel Orientation="Vertical">
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Właściciel:"
+                <TextBlock Text="Owner:"
                            FontSize="16"
                            Foreground="White"
                            Margin="20"
@@ -17,7 +17,8 @@
                            Width="100"
                            HorizontalAlignment="Left"/>
 
-                <TextBox FontSize="16"
+                <TextBox Name="ownerInput"
+                         FontSize="16"
                          Foreground="White"
                          Margin="20"
                          Height="40"
@@ -27,7 +28,7 @@
             </StackPanel>
             
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Tytuł:"
+                <TextBlock Text="Title:"
                            FontSize="16"
                            Foreground="White"
                            Margin="20"
@@ -35,7 +36,8 @@
                            Width="100"
                            HorizontalAlignment="Left"/>
 
-                <TextBox FontSize="16"
+                <TextBox Name="titleInput"
+                         FontSize="16"
                          Foreground="White"
                          Margin="20"
                          Height="40"
@@ -45,7 +47,7 @@
             </StackPanel>
 
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Autor:"
+                <TextBlock Text="Author:"
                            FontSize="16"
                            Foreground="White"
                            Margin="20"
@@ -53,7 +55,8 @@
                            Width="100"
                            HorizontalAlignment="Left"/>
 
-                <TextBox FontSize="16"
+                <TextBox Name="authorInput"
+                         FontSize="16"
                          Foreground="White"
                          Margin="20"
                          Height="40"
@@ -63,7 +66,7 @@
             </StackPanel>
 
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Komentarz:"
+                <TextBlock Text="Comment:"
                            FontSize="16"
                            Foreground="White"
                            Margin="20"
@@ -71,7 +74,8 @@
                            Width="100"
                            HorizontalAlignment="Left"/>
 
-                <TextBox FontSize="16"
+                <TextBox Name="commentInput"
+                         FontSize="16"
                          Foreground="White"
                          Margin="20"
                          Height="40"
@@ -112,7 +116,8 @@
                 Background="#262626"
                 />
         
-        <Button Content="Akceptuj"
+        <Button Name="AcceptButton"
+                Content="Accept"
                 Height="40"
                 Width="100"
                 VerticalAlignment="Bottom"
@@ -120,6 +125,7 @@
                 Margin="20"
                 FontSize="16"
                 Foreground="White"
-                Background="#262626"/>
+                Background="#262626" 
+                Click="AcceptButton_Click"/>
     </Grid>
 </UserControl>
