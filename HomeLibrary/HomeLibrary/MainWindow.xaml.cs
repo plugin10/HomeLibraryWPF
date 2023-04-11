@@ -1,7 +1,9 @@
-﻿using HomeLibrary.Content.Models;
+﻿using HomeLibrary.Content.Controller;
+using HomeLibrary.Content.Models;
 using HomeLibrary.Content.Viues;
 using Newtonsoft.Json;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -28,7 +30,6 @@ namespace HomeLibrary
             InitializeComponent();
 
             LoadBookAddView();
-
         }
         
         private void LoadBookAddView()

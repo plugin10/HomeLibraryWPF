@@ -31,6 +31,26 @@
                 <DataGridTextColumn Header="Title" Binding="{Binding Title}" Width="*"/>
                 <DataGridTextColumn Header="Author" Binding="{Binding Author}" Width="*"/>
                 <DataGridTextColumn Header="Owner" Binding="{Binding Owner}" Width="*"/>
+                <DataGridTemplateColumn Header="Edit" Width="*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Name="editBook"
+                                    Content="Edit" 
+                                    CommandParameter="{Binding Id}"
+                                    Click="editBook_Click"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Delete" Width="*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Name="deleteBook"
+                                    Content="Delete" 
+                                    CommandParameter="{Binding Id}"
+                                    Click="deleteBook_Click"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
         

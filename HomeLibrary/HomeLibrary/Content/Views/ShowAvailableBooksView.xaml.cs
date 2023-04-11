@@ -1,7 +1,9 @@
-﻿using HomeLibrary.Content.Models;
+﻿using HomeLibrary.Content.Controller;
+using HomeLibrary.Content.Models;
 using HomeLibrary.Content.ViewModels;
 using Newtonsoft.Json;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -28,6 +30,8 @@ namespace HomeLibrary.Content.Views
         {
             InitializeComponent();
 
+            JsonFileController crud = new JsonFileController();
+
             ShowAvailableBooksViewModel test = new ShowAvailableBooksViewModel();
 
             foreach (Book book in test.books)
@@ -36,6 +40,30 @@ namespace HomeLibrary.Content.Views
                 {
                     BooksDataGrid.Items.Add(book);
                 }
+            }
+        }
+
+        private void editBook_Click(object sender, RoutedEventArgs e) 
+        {
+            Button b = (Button)sender;
+
+            if (b.CommandParameter != null)
+            {
+                Guid id = Guid.Parse(b.CommandParameter.ToString());
+                
+                MessageBox.Show(id.ToString());
+            }
+        }
+
+        private void deleteBook_Click(object sender, RoutedEventArgs e)
+        {
+            Button b = (Button)sender;
+
+            if (b.CommandParameter != null)
+            {
+                Guid id = Guid.Parse(b.CommandParameter.ToString());
+
+                MessageBox.Show(id.ToString());
             }
         }
     }
