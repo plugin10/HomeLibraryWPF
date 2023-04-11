@@ -70,115 +70,12 @@
                             Margin="5"
                             Content="{Binding CurrentView}" />
 
-            <StackPanel Orientation="Vertical"
+            <StackPanel Name="RightPanel"
+                        Orientation="Vertical"
                         Grid.Column="2"
                         Grid.Row="1">
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="Owner:"
-                           FontSize="14"
-                           Foreground="White"
-                           Margin="20"
-                           Height="20"
-                           Width="50"
-                           HorizontalAlignment="Left"/>
 
-                    <TextBox Name="ownerInput"
-                         FontSize="14"
-                         Foreground="White"
-                         Margin="20"
-                         Height="20"
-                         Width="150"
-                         HorizontalAlignment="Left"
-                         Background="#262626"/>
-                </StackPanel>
-
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="Title:"
-                           FontSize="14"
-                           Foreground="White"
-                           Margin="20"
-                           Height="20"
-                           Width="50"
-                           HorizontalAlignment="Left"/>
-
-                    <TextBox Name="titleInput"
-                         FontSize="14"
-                         Foreground="White"
-                         Margin="20"
-                         Height="20"
-                         Width="150"
-                         HorizontalAlignment="Left"
-                         Background="#262626"/>
-                </StackPanel>
-
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="Author:"
-                           FontSize="14"
-                           Foreground="White"
-                           Margin="20"
-                           Height="20"
-                           Width="50"
-                           HorizontalAlignment="Left"/>
-
-                    <TextBox Name="authorInput"
-                         FontSize="14"
-                         Foreground="White"
-                         Margin="20"
-                         Height="20"
-                         Width="150"
-                         HorizontalAlignment="Left"
-                         Background="#262626"/>
-                </StackPanel>
-
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="Comment:"
-                           FontSize="14"
-                           Foreground="White"
-                           Margin="20"
-                           Height="20"
-                           Width="50"
-                           HorizontalAlignment="Left"
-                           />
-
-                    <TextBox Name="commentInput"
-                         FontSize="14"
-                         Foreground="White"
-                         Margin="20"
-                         Height="20"
-                         Width="150"
-                         HorizontalAlignment="Left"
-                         Background="#262626"/>
-                </StackPanel>
             </StackPanel>
-            <Button Content="Anuluj"
-                    Grid.Column="2"
-                    Grid.Row="1"
-                    Height="40"
-                    Width="100"
-                    Margin="20"
-                    VerticalAlignment="Bottom"
-                    HorizontalAlignment="Left"
-                    FontSize="14"
-                    Foreground="White"
-                    Background="#262626"
-                    />
-
-            <Button Name="AcceptButton"
-                    Grid.Column="2"
-                    Grid.Row="1"
-                    Content="Accept"
-                    Height="40"
-                    Width="100"
-                    Margin="20"
-                    VerticalAlignment="Bottom"
-                    HorizontalAlignment="Right"
-                    FontSize="14"
-                    Foreground="White"
-                    Background="#262626" 
-                    Click="AcceptButton_Click"
-                    />
-
         </Grid>
-
     </Border>
 </Window>
