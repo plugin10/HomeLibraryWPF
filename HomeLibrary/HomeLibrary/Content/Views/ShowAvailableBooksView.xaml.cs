@@ -1,6 +1,7 @@
 ﻿using HomeLibrary.Content.Controller;
 using HomeLibrary.Content.Models;
 using HomeLibrary.Content.ViewModels;
+using HomeLibrary.Content.Viues;
 using Newtonsoft.Json;
 using System;
 using System.Collections;
@@ -30,6 +31,8 @@ namespace HomeLibrary.Content.Views
         {
             InitializeComponent();
 
+            LoadBookAddView();
+
             JsonFileController crud = new JsonFileController();
 
             ShowAvailableBooksViewModel test = new ShowAvailableBooksViewModel();
@@ -43,6 +46,25 @@ namespace HomeLibrary.Content.Views
             }
         }
 
+        //Load BookAddView
+        private void LoadBookAddView()
+        {
+            BookAddView bookAddWindow = new BookAddView();
+            RightPanel.Children.Clear();
+            RightPanel.Children.Add(bookAddWindow);
+        }
+
+        //Load BookAddView with choosen option
+        private void LoadBookAddView(Guid id, UIType Operation, bool isDataEnabled)
+        {
+            BookAddView bookAddWindow = new BookAddView();
+            bookAddWindow.LoadDataFromGrid(id);
+            bookAddWindow.ChangeUIType(Operation);
+            bookAddWindow.SetDataIsEnabled(isDataEnabled);
+            RightPanel.Children.Clear();
+            RightPanel.Children.Add(bookAddWindow);
+        }
+
         private void editBook_Click(object sender, RoutedEventArgs e) 
         {
             Button b = (Button)sender;
@@ -50,7 +72,9 @@ namespace HomeLibrary.Content.Views
             if (b.CommandParameter != null)
             {
                 Guid id = Guid.Parse(b.CommandParameter.ToString());
-                
+
+                LoadBookAddView(id,UIType.UIEdit, true);
+
                 MessageBox.Show(id.ToString());
             }
         }

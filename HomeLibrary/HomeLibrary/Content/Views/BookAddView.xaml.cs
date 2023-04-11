@@ -1,6 +1,8 @@
-﻿using HomeLibrary.Content.Models;
+﻿using HomeLibrary.Content.Controller;
+using HomeLibrary.Content.Models;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,34 +28,167 @@ namespace HomeLibrary.Content.Viues
             InitializeComponent();
         }
 
-        //private void AcceptButton_Click(object sender, RoutedEventArgs e)
-        //{
-        //    if (ownerInput.GetValue(TextBox.TextProperty) != null && titleInput.GetValue(TextBox.TextProperty) != null && authorInput.GetValue(TextBox.TextProperty) != null)
-        //    {
-        //        var filePath = @"../../../Data/db.json";
-        //        // Read existing json data
-        //        var jsonData = System.IO.File.ReadAllText(filePath);
-        //        // De-serialize to object or create new list
-        //        var bookList = JsonConvert.DeserializeObject<List<Book>>(jsonData) ?? new List<Book>();
+        private void AcceptButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (ownerInput.Text.Length == 0)
+            {
+                MessageBox.Show("Owner is required", "INFO", MessageBoxButton.OK, MessageBoxImage.Information);
+                return;
+            }
+            if (titleInput.Text.Length == 0)
+            {
+                MessageBox.Show("Title is required", "INFO", MessageBoxButton.OK, MessageBoxImage.Information);
+                return;
+            }
 
-        //        Book newBook = new Book
-        //        {
-        //            Id = Guid.NewGuid(),
-        //            Owner = ownerInput.Text,
-        //            Title = titleInput.Text,
-        //            Author = authorInput.Text,
-        //            IsAvailable = true
-        //        };
+            if (AcceptButton.Content == null) return;
+            var book = GetFrmFromDataEntry();
 
-        //        bookList.Add(newBook);
+            string commandType = AcceptButton.Content.ToString();
 
-        //        jsonData = JsonConvert.SerializeObject(bookList);
-        //        System.IO.File.WriteAllText(@"../../../Data/db.json", jsonData);
-        //    }
-        //    else
-        //    {
-        //        MessageBox.Show("Please fill all fields");
-        //    }
-        //}
+            switch (commandType.ToLower().Trim())
+            {
+                case "update record":
+                    {
+                        UpdateBook(book);
+                    }
+                    break;
+                case "insert record":
+                    {
+                        CreateBook(book);
+                    }
+                    break;
+            }
+
+        }
+
+        private void BtnCancel_Click(object sender, RoutedEventArgs e)
+        {
+        }
+
+        //Load ID from the grid
+        public void LoadDataFromGrid(Guid? id)
+        {
+            Book book = new Book();
+
+            //check if id is null
+            if (id.HasValue)
+            {
+                book.Id = id.Value;
+            }
+            else
+            {
+                ClearBookAddView();
+                return;
+            }
+
+            JsonFileController crud = new JsonFileController();
+            List<Book> books = crud.FindBook(book);
+            
+            //get object from list
+            Book record = books.FirstOrDefault(b => b.Id == id);
+            if (record != null)
+            {
+                this.idInput.Text = id.ToString();
+                this.ownerInput.Text = record.Owner.ToString();
+                this.titleInput.Text = record.Title.ToString();
+                this.authorInput.Text = record.Author.ToString();
+                this.isAvailableInput.IsChecked = record.IsAvailable;
+                
+                if (record.Borrower != null)
+                {
+                    this.borrowerInput.Text = record.Borrower.ToString();
+                }
+            }
+        }
+
+        //Change UI type
+        public void ChangeUIType(UIType uiType)
+        {
+            switch (uiType)
+            {
+                case UIType.UIEdit:
+                    {
+                        AcceptButton.Content = "Update Record";
+                    }
+                    break;
+                case UIType.UICreate:
+                    {
+                        AcceptButton.Content = "Insert Record";
+                    }
+                    break;
+                case UIType.UIDelete:
+                    {
+                        AcceptButton.Content = "Delete Record";
+                    }
+                    break;
+            }
+        }
+
+        private Book GetFrmFromDataEntry()
+        {
+            var book = new Book();
+            book.Id = Guid.Parse(this.idInput.Text.ToString());
+            book.Owner = ownerInput.Text.Trim();
+            book.Title = titleInput.Text.Trim();
+            book.Author = authorInput.Text.Trim();
+            book.IsAvailable = isAvailableInput.IsChecked.Value;
+
+            if (borrowerInput.Text.Trim().Length > 0)
+                book.Borrower = borrowerInput.Text.Trim();
+            else
+                book.Borrower = null;
+
+            return (book);
+        }
+
+        private void ResetDataEntry()
+        {
+            ClearBookAddView();
+            CrudOperations.Visibility = Visibility.Collapsed;
+        }
+
+        //Clear the form
+        public void ClearBookAddView()
+        {
+            this.idInput.Text = String.Empty;
+            this.ownerInput.Text = String.Empty;
+            this.titleInput.Text = String.Empty;
+            this.authorInput.Text = String.Empty;
+            this.isAvailableInput.IsChecked = false;
+            this.borrowerInput.Text = String.Empty;
+        }
+
+        public void NewRecordGuid()
+        {
+            this.idInput.Text = Guid.NewGuid().ToString();
+            this.idInput.IsEnabled = false;
+        }
+
+        public void SetDataIsEnabled(bool state)
+        {
+            this.ownerInput.IsEnabled = state;
+            this.titleInput.IsEnabled = state;
+            this.authorInput.IsEnabled = state;
+        }
+
+        //Create a new record
+        private void CreateBook(Book newBook)
+        {
+            JsonFileController crud = new JsonFileController();
+
+            var tupValue = crud.InsertData(newBook);
+
+        }
+
+        //Update a record
+        private void UpdateBook(Book book)
+        {
+            JsonFileController crud = new JsonFileController();
+
+            var tupValue = crud.UpdateData(book);
+
+        }
     }
 }
+

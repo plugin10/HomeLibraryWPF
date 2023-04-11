@@ -9,6 +9,7 @@
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
+            <ColumnDefinition Width="300"/>
         </Grid.ColumnDefinitions>
 
         <DataGrid Name="BooksDataGrid"
@@ -53,6 +54,10 @@
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
-        
+
+        <StackPanel Name="RightPanel"
+                        Orientation="Vertical"
+                        Grid.Column="1">
+        </StackPanel>
     </Grid>
 </UserControl>

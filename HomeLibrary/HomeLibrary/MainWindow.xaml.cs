@@ -28,15 +28,6 @@ namespace HomeLibrary
         public MainWindow()
         {
             InitializeComponent();
-
-            LoadBookAddView();
-        }
-        
-        private void LoadBookAddView()
-        {
-            BookAddView bookAddWindow = new BookAddView();
-            RightPanel.Children.Clear();
-            RightPanel.Children.Add(bookAddWindow);
         }
     }
 }
