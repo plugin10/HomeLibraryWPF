@@ -48,17 +48,17 @@ namespace HomeLibrary.Content.Viues
 
             switch (commandType.ToLower().Trim())
             {
-                case "update record":
+                case "edit":
                     {
                         EditBook(book);
                     }
                     break;
-                case "insert record":
+                case "create":
                     {
                         CreateBook(book);
                     }
                     break;
-                case "delete record":
+                case "remove":
                     {
                         RemoveBook(book);
                     }
@@ -67,8 +67,11 @@ namespace HomeLibrary.Content.Viues
 
         }
 
-        private void BtnCancel_Click(object sender, RoutedEventArgs e)
+        private void CancelButton_Click(object sender, RoutedEventArgs e)
         {
+            ClearBookAddView();
+            SetDataIsEnabled(true);
+            AcceptButton.Content = "Create";
         }
 
         //Load ID from the grid
@@ -114,17 +117,17 @@ namespace HomeLibrary.Content.Viues
             {
                 case UIType.UIEdit:
                     {
-                        AcceptButton.Content = "Update Record";
+                        AcceptButton.Content = "Edit";
                     }
                     break;
                 case UIType.UICreate:
                     {
-                        AcceptButton.Content = "Insert Record";
+                        AcceptButton.Content = "Create";
                     }
                     break;
                 case UIType.UIDelete:
                     {
-                        AcceptButton.Content = "Delete Record";
+                        AcceptButton.Content = "Remove";
                     }
                     break;
             }
