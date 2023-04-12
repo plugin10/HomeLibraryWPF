@@ -65,6 +65,7 @@ namespace HomeLibrary.Content.Views
             RightPanel.Children.Add(bookAddWindow);
         }
 
+        //Click event for edit button
         private void editBook_Click(object sender, RoutedEventArgs e) 
         {
             Button b = (Button)sender;
@@ -79,6 +80,7 @@ namespace HomeLibrary.Content.Views
             }
         }
 
+        //Click event for delete button
         private void deleteBook_Click(object sender, RoutedEventArgs e)
         {
             Button b = (Button)sender;
@@ -86,6 +88,8 @@ namespace HomeLibrary.Content.Views
             if (b.CommandParameter != null)
             {
                 Guid id = Guid.Parse(b.CommandParameter.ToString());
+
+                LoadBookAddView(id, UIType.UIDelete, false);
 
                 MessageBox.Show(id.ToString());
             }

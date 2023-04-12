@@ -50,12 +50,17 @@ namespace HomeLibrary.Content.Viues
             {
                 case "update record":
                     {
-                        UpdateBook(book);
+                        EditBook(book);
                     }
                     break;
                 case "insert record":
                     {
                         CreateBook(book);
+                    }
+                    break;
+                case "delete record":
+                    {
+                        RemoveBook(book);
                     }
                     break;
             }
@@ -182,12 +187,19 @@ namespace HomeLibrary.Content.Viues
         }
 
         //Update a record
-        private void UpdateBook(Book book)
+        private void EditBook(Book book)
         {
             JsonFileController crud = new JsonFileController();
 
             var tupValue = crud.UpdateData(book);
 
+        }
+
+        //Delete a record
+        private void RemoveBook(Book book)
+        {
+            JsonFileController crud = new JsonFileController();
+            var tupValue = crud.DeleteData(book);
         }
     }
 }

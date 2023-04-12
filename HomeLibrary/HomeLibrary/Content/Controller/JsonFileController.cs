@@ -146,5 +146,44 @@ namespace HomeLibrary.Content.Controller
             return (false, msg2);
 
         }
+
+        public (bool Success, string[]? errors) DeleteData(Book book)
+        {
+            LoadJson();
+            if (books == null)
+            {
+                books = new List<Book>();
+            }
+
+            var test = books.FirstOrDefault(r => r.Id == book.Id);
+            if (test != null)
+            {
+                // remove book to list
+                books.RemoveAll(r => r.Id == test.Id);
+
+                // serializeList to disk
+                bool rv = SaveJson();
+                if (rv != true)
+                {
+                    MessageBox.Show("Error writing json to disk");
+                    string[] msg1 =
+                    {
+                        "Error writing JSON to disk",
+                        $"{book.Id} {book.Title} is in memory object"
+                    };
+                    return (false, msg1);
+                }
+
+                return (true, null);
+            }
+
+            string[] msg2 =
+                    {
+                        "Error inserting record into memory object",
+                        $"{book.Id} {book.Title} already exists"
+                    };
+            return (false, msg2);
+
+        }
     }
 }
