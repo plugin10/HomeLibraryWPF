@@ -7,6 +7,11 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="300"/>
+        </Grid.ColumnDefinitions>
+        
         <DataGrid Name="BooksDataGrid"
                   Background="#2F2F2F"
                   Foreground="White">
@@ -28,7 +33,32 @@
                 <DataGridTextColumn Header="Author" Binding="{Binding Author}" Width="*"/>
                 <DataGridTextColumn Header="Owner" Binding="{Binding Owner}" Width="*"/>
                 <DataGridTextColumn Header="Borrower" Binding="{Binding Borrower}" Width="*"/>
+                <DataGridTemplateColumn Header="Edit" Width="*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Name="editBook"
+                                    Content="Edit" 
+                                    CommandParameter="{Binding Id}"
+                                    Click="editBook_Click"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Delete" Width="*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Name="deleteBook"
+                                    Content="Delete" 
+                                    CommandParameter="{Binding Id}"
+                                    Click="deleteBook_Click"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
+
+        <StackPanel Name="RightPanel"
+                        Orientation="Vertical"
+                        Grid.Column="1">
+        </StackPanel>
     </Grid>
 </UserControl>
