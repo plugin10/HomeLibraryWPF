@@ -11,8 +11,34 @@
             <ColumnDefinition/>
             <ColumnDefinition Width="300"/>
         </Grid.ColumnDefinitions>
-        
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="75"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Name="TitleTextBlock"
+                   Text="Unavailable Books"
+                   TextAlignment="Center"
+                   Foreground ="White"
+                   FontSize="30"
+                   FontWeight="Bold"
+                   Margin="10,10,0,0"
+                   Grid.Row="0"
+                   Grid.Column="0"/>
+
+        <TextBlock Name="TitleForm"
+                   Text="Form"
+                   TextAlignment="Center"
+                   Foreground ="White"
+                   FontSize="30"
+                   FontWeight="Bold"
+                   Margin="10,10,0,0"
+                   Grid.Row="0"
+                   Grid.Column="1"/>
+
         <DataGrid Name="BooksDataGrid"
+                  Grid.Row="1"
                   Background="#2F2F2F"
                   Foreground="White">
 
@@ -28,7 +54,6 @@
             </DataGrid.Resources>
 
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Photo" Binding="{Binding Photo}" Width="*"/>
                 <DataGridTextColumn Header="Title" Binding="{Binding Title}" Width="*"/>
                 <DataGridTextColumn Header="Author" Binding="{Binding Author}" Width="*"/>
                 <DataGridTextColumn Header="Owner" Binding="{Binding Owner}" Width="*"/>
@@ -57,8 +82,9 @@
         </DataGrid>
 
         <StackPanel Name="RightPanel"
-                        Orientation="Vertical"
-                        Grid.Column="1">
+                    Grid.Row="1"
+                    Orientation="Vertical"
+                    Grid.Column="1">
         </StackPanel>
     </Grid>
 </UserControl>
