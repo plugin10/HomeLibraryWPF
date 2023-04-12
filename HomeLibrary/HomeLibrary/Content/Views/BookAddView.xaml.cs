@@ -42,7 +42,7 @@ namespace HomeLibrary.Content.Viues
             }
 
             if (AcceptButton.Content == null) return;
-            var book = GetFrmFromDataEntry();
+            var book = GetUserData();
 
             string commandType = AcceptButton.Content.ToString();
 
@@ -130,7 +130,8 @@ namespace HomeLibrary.Content.Viues
             }
         }
 
-        private Book GetFrmFromDataEntry()
+        //Get data from the form
+        private Book GetUserData()
         {
             var book = new Book();
             book.Id = Guid.Parse(this.idInput.Text.ToString());
@@ -150,7 +151,6 @@ namespace HomeLibrary.Content.Viues
         private void ResetDataEntry()
         {
             ClearBookAddView();
-            CrudOperations.Visibility = Visibility.Collapsed;
         }
 
         //Clear the form

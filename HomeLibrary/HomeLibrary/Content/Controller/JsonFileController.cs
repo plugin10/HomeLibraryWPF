@@ -147,6 +147,7 @@ namespace HomeLibrary.Content.Controller
 
         }
 
+        //Delete data from json
         public (bool Success, string[]? errors) DeleteData(Book book)
         {
             LoadJson();

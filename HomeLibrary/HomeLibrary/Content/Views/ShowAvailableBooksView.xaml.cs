@@ -35,9 +35,7 @@ namespace HomeLibrary.Content.Views
 
             JsonFileController crud = new JsonFileController();
 
-            ShowAvailableBooksViewModel test = new ShowAvailableBooksViewModel();
-
-            foreach (Book book in test.books)
+            foreach (Book book in crud.books)
             {
                 if (book.IsAvailable == true)
                 {

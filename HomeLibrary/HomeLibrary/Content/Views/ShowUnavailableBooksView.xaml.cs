@@ -1,4 +1,5 @@
-﻿using HomeLibrary.Content.Models;
+﻿using HomeLibrary.Content.Controller;
+using HomeLibrary.Content.Models;
 using HomeLibrary.Content.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -27,9 +28,9 @@ namespace HomeLibrary.Content.Views
         {
             InitializeComponent();
 
-            ShowAvailableBooksViewModel test = new ShowAvailableBooksViewModel();
+            JsonFileController crud = new JsonFileController();
 
-            foreach (Book book in test.books)
+            foreach (Book book in crud.books)
             {
                 if (book.IsAvailable == false)
                 {
