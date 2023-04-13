@@ -1,5 +1,6 @@
 ﻿using HomeLibrary.Content.Controller;
 using HomeLibrary.Content.Models;
+using HomeLibrary.Content.Views;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -23,6 +24,7 @@ namespace HomeLibrary.Content.Viues
     /// </summary>
     public partial class BookAddView : UserControl
     {
+
         public BookAddView()
         {
             InitializeComponent();
@@ -36,6 +38,11 @@ namespace HomeLibrary.Content.Viues
                 return;
             }
             if (titleInput.Text.Length == 0)
+            {
+                MessageBox.Show("Title is required", "INFO", MessageBoxButton.OK, MessageBoxImage.Information);
+                return;
+            }
+            if (authorInput.Text.Length == 0)
             {
                 MessageBox.Show("Title is required", "INFO", MessageBoxButton.OK, MessageBoxImage.Information);
                 return;
@@ -151,11 +158,6 @@ namespace HomeLibrary.Content.Viues
             return (book);
         }
 
-        private void ResetDataEntry()
-        {
-            ClearBookAddView();
-        }
-
         //Clear the form
         public void ClearBookAddView()
         {
@@ -173,6 +175,7 @@ namespace HomeLibrary.Content.Viues
             this.idInput.IsEnabled = false;
         }
 
+        //Set data enabled
         public void SetDataIsEnabled(bool state)
         {
             this.ownerInput.IsEnabled = state;

@@ -11,6 +11,7 @@
                 <ResourceDictionary Source="Styles/MenuButtonStyle.xaml" />
                 <ResourceDictionary Source="Styles/TextboxStyle.xaml" />
                 <ResourceDictionary Source="Styles/MainButtonStyle.xaml" />
+                <ResourceDictionary Source="Themes/DarkTheme.xaml" />
             </ResourceDictionary.MergedDictionaries>
 
             <DataTemplate DataType="{x:Type viewModel:ShowAvailableBooksViewModel}">
@@ -23,4 +24,5 @@
 
         </ResourceDictionary>
     </Application.Resources>
+
 </Application>

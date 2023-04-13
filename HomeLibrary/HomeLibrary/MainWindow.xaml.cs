@@ -25,9 +25,26 @@ namespace HomeLibrary
     /// </summary>
     public partial class MainWindow : Window
     {
+        private bool DarkTheme = true;
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void ChangeThemeButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (DarkTheme) 
+            {
+                Application.Current.Resources.MergedDictionaries.Clear();
+                Application.Current.Resources.MergedDictionaries.Add(new ResourceDictionary() { Source = new Uri("Themes/LightTheme.xaml", UriKind.Relative) });
+                DarkTheme = false;
+            }
+            else
+            {
+                Application.Current.Resources.MergedDictionaries.Clear();
+                Application.Current.Resources.MergedDictionaries.Add(new ResourceDictionary() { Source = new Uri("Themes/DarkTheme.xaml", UriKind.Relative) });
+                DarkTheme = true;
+            }
         }
     }
 }

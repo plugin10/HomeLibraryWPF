@@ -20,7 +20,7 @@
         <TextBlock Name="TitleTextBlock"
                    Text="Available Books"
                    TextAlignment="Center"
-                   Foreground ="White"
+                   Foreground ="{DynamicResource ForegroundBrush}"
                    FontSize="30"
                    FontWeight="Bold"
                    Margin="10,10,0,0"
@@ -30,7 +30,7 @@
         <TextBlock Name="TitleForm"
                    Text="Form"
                    TextAlignment="Center"
-                   Foreground ="White"
+                   Foreground ="{DynamicResource ForegroundBrush}"
                    FontSize="30"
                    FontWeight="Bold"
                    Margin="10,10,0,0"
@@ -39,17 +39,17 @@
 
         <DataGrid Name="BooksDataGrid"
                   Grid.Row="1"
-                  Background="#2F2F2F"
-                  Foreground="White">
+                  Background="{DynamicResource BackgroundBrush}"
+                  Foreground="{DynamicResource ForegroundBrush}">
 
             <DataGrid.Resources>
                 <Style TargetType="{x:Type DataGridColumnHeader}">
-                    <Setter Property="Background" Value="#3F3F3F"/>
-                    <Setter Property="Foreground" Value="White"/>
+                    <Setter Property="Background" Value="{DynamicResource SecondaryBrush}"/>
+                    <Setter Property="Foreground" Value="{DynamicResource ForegroundBrush}"/> 
                 </Style>
                 <Style TargetType="DataGridCell">
-                    <Setter Property="Background" Value="#2F2F2F"/>
-                    <Setter Property="Foreground" Value="White"/>
+                    <Setter Property="Background" Value="{DynamicResource SecondaryBrush}"/>
+                    <Setter Property="Foreground" Value="{DynamicResource ForegroundBrush}"/>
                 </Style>
             </DataGrid.Resources>
 

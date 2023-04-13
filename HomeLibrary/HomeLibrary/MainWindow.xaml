@@ -16,7 +16,7 @@
         <viewModel:MainViewModel/>
     </Window.DataContext>
 
-    <Border Background="#2F2F2F"
+    <Border Background="{DynamicResource BackgroundBrush}"
             CornerRadius="20">
         <Grid>
             <Grid.ColumnDefinitions>
@@ -30,7 +30,7 @@
             </Grid.RowDefinitions>
 
             <TextBlock Text="Home Library"
-                   Foreground="White"
+                   Foreground="{DynamicResource ForegroundBrush}"
                    FontSize="26"
                    VerticalAlignment="Center"
                    HorizontalAlignment="Center"/>
@@ -53,6 +53,17 @@
                              FontSize="14"
                              Style="{StaticResource MenuButtonStyle}"
                              Command="{Binding ShowUnavailableBooksCommand}"/>
+
+                <Button Name="ChangeThemeButton"
+                        Content="Change Theme"
+                        Height="35"
+                        Width="110"
+                        VerticalAlignment="Bottom"
+                        HorizontalAlignment="Center"
+                        Margin="20"
+                        FontSize="14"
+                        Foreground="{DynamicResource ForegroundBrush}"
+                        Background="{DynamicResource SecondaryBrush}" Click="ChangeThemeButton_Click"/>
 
             </StackPanel>
 

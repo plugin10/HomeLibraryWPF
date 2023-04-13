@@ -35,6 +35,14 @@ namespace HomeLibrary.Content.Views
 
             JsonFileController crud = new JsonFileController();
 
+            LoadDataToGrid();
+        }
+
+        //Load data to grid
+        public void LoadDataToGrid()
+        {
+            JsonFileController crud = new JsonFileController();
+
             foreach (Book book in crud.books)
             {
                 if (book.IsAvailable == true)
