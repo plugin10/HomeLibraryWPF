@@ -48,7 +48,7 @@
                     <Setter Property="Foreground" Value="{DynamicResource ForegroundBrush}"/> 
                 </Style>
                 <Style TargetType="DataGridCell">
-                    <Setter Property="Background" Value="{DynamicResource SecondaryBrush}"/>
+                    <Setter Property="Background" Value="{DynamicResource BackgroundBrush}"/>
                     <Setter Property="Foreground" Value="{DynamicResource ForegroundBrush}"/>
                 </Style>
             </DataGrid.Resources>

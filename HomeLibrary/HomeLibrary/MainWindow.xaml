@@ -40,7 +40,7 @@
                 <RadioButton Name="AvailableButton"
                              Content="Available"
                              Height="50"
-                             Foreground="White"
+                             Foreground="{DynamicResource ForegroundBrush}"
                              FontSize="14"
                              Style="{StaticResource MenuButtonStyle}"
                              IsChecked="True"
@@ -49,7 +49,7 @@
                 <RadioButton Name="UnavailableButton"
                              Content="Unavailable"
                              Height="50"
-                             Foreground="White"
+                             Foreground="{DynamicResource ForegroundBrush}"
                              FontSize="14"
                              Style="{StaticResource MenuButtonStyle}"
                              Command="{Binding ShowUnavailableBooksCommand}"/>

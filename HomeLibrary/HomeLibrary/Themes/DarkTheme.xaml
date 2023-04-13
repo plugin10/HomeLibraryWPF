@@ -4,5 +4,6 @@
     <SolidColorBrush x:Key="BackgroundBrush" Color="#2F2F2F"/>
     <SolidColorBrush x:Key="ForegroundBrush" Color="White"/> 
     <SolidColorBrush x:Key="SecondaryBrush" Color="#262626"/>
+    <SolidColorBrush x:Key="RadioButtonBrush" Color="#393939"/>
 
 </ResourceDictionary>

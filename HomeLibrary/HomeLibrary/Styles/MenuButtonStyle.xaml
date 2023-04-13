@@ -26,10 +26,10 @@
         </Style.Setters>
         <Style.Triggers>
             <Trigger Property="IsChecked" Value="True">
-                <Setter Property="Background" Value="#262626"/>
+                <Setter Property="Background" Value="{DynamicResource SecondaryBrush}"/>
             </Trigger>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="#393939"/>
+                <Setter Property="Background" Value="{DynamicResource RadioButtonBrush}"/>
             </Trigger>
         </Style.Triggers>
     </Style>
