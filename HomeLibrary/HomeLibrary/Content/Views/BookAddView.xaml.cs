@@ -48,7 +48,10 @@ namespace HomeLibrary.Content.Viues
                 return;
             }
 
-            if (AcceptButton.Content == null) return;
+            if (AcceptButton.Content == null) 
+            { 
+                return; 
+            }
             var book = GetUserData();
 
             string commandType = AcceptButton.Content.ToString();
@@ -144,7 +147,10 @@ namespace HomeLibrary.Content.Viues
         private Book GetUserData()
         {
             var book = new Book();
-            book.Id = Guid.Parse(this.idInput.Text.ToString());
+            if (AcceptButton.Content.ToString() != "Create")
+            {
+                book.Id = Guid.Parse(this.idInput.Text.ToString());
+            }
             book.Owner = ownerInput.Text.Trim();
             book.Title = titleInput.Text.Trim();
             book.Author = authorInput.Text.Trim();
@@ -169,12 +175,6 @@ namespace HomeLibrary.Content.Viues
             this.borrowerInput.Text = String.Empty;
         }
 
-        public void NewRecordGuid()
-        {
-            this.idInput.Text = Guid.NewGuid().ToString();
-            this.idInput.IsEnabled = false;
-        }
-
         //Set data enabled
         public void SetDataIsEnabled(bool state)
         {
@@ -186,9 +186,11 @@ namespace HomeLibrary.Content.Viues
         //Create a new record
         private void CreateBook(Book newBook)
         {
+            newBook.Id = Guid.NewGuid();
+
             JsonFileController crud = new JsonFileController();
 
-            var tupValue = crud.InsertData(newBook);
+            crud.InsertData(newBook);
 
         }
 
@@ -197,7 +199,7 @@ namespace HomeLibrary.Content.Viues
         {
             JsonFileController crud = new JsonFileController();
 
-            var tupValue = crud.UpdateData(book);
+            crud.UpdateData(book);
 
         }
 
@@ -205,7 +207,7 @@ namespace HomeLibrary.Content.Viues
         private void RemoveBook(Book book)
         {
             JsonFileController crud = new JsonFileController();
-            var tupValue = crud.DeleteData(book);
+            crud.DeleteData(book);
         }
     }
 }

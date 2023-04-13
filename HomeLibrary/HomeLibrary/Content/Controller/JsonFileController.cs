@@ -67,7 +67,7 @@ namespace HomeLibrary.Content.Controller
         }
 
         //Insert data to json file
-        public (bool Success, string[]? errors) InsertData(Book newBook)
+        public void InsertData(Book newBook)
         {
             LoadJson();
             if (books == null)
@@ -86,27 +86,16 @@ namespace HomeLibrary.Content.Controller
                 if (rv != true)
                 {
                     MessageBox.Show("Error writing json to disk");
-                    string[] msg1 =
-                    {
-                        "Error writing JSON to disk",
-                        $"{newBook.Id} {newBook.Title} is in memory object"
-                    };
-                    return (false, msg1);
                 }
-
-                return (true, null);
             }
-
-            string[] msg2 =
-                    {
-                        "Error inserting record into memory object",
-                        $"{newBook.Id} {newBook.Title} already exists"
-                    };
-            return (false, msg2);
+            else
+            {
+                MessageBox.Show("Book already exists");
+            }
         }
 
         //Update data in json file
-        public (bool Success, string[]? errors) UpdateData(Book book)
+        public void UpdateData(Book book)
         {
             LoadJson();
             if (books == null)
@@ -127,28 +116,16 @@ namespace HomeLibrary.Content.Controller
                 if (rv != true)
                 {
                     MessageBox.Show("Error writing json to disk");
-                    string[] msg1 =
-                    {
-                        "Error writing JSON to disk",
-                        $"{book.Id} {book.Title} is in memory object"
-                    };
-                    return (false, msg1);
                 }
-
-                return (true, null);
             }
-
-            string[] msg2 =
-                    {
-                        "Error updating record into memory object",
-                        $"{book.Id} {book.Title} already exists"
-                    };
-            return (false, msg2);
-
+            else
+            {
+                MessageBox.Show("Book does not exist");
+            }
         }
 
         //Delete data from json
-        public (bool Success, string[]? errors) DeleteData(Book book)
+        public void DeleteData(Book book)
         {
             LoadJson();
             if (books == null)
@@ -167,24 +144,12 @@ namespace HomeLibrary.Content.Controller
                 if (rv != true)
                 {
                     MessageBox.Show("Error writing json to disk");
-                    string[] msg1 =
-                    {
-                        "Error writing JSON to disk",
-                        $"{book.Id} {book.Title} is in memory object"
-                    };
-                    return (false, msg1);
                 }
-
-                return (true, null);
             }
-
-            string[] msg2 =
-                    {
-                        "Error inserting record into memory object",
-                        $"{book.Id} {book.Title} already exists"
-                    };
-            return (false, msg2);
-
+            else
+            {
+                MessageBox.Show("Book does not exist");
+            }
         }
     }
 }
