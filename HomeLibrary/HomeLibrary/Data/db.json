@@ -1,2 +1,1 @@
-[{"id":"fc67cc96-c3e9-44a9-ba78-0aa47857e411","photo":"photoTest1","title":"titleTest1","author":"authorTest1","owner":"ownerTest1","isAvailable":true,"borrower":null},
-{"id":"285c2ed1-e0ca-44ed-b28b-894a1cf533dc","photo":"photoTest2","title":"titleTest2","author":"authorTest2","owner":"ownerTest2","isAvailable":false,"borrower":"borrowerTest1"}]
+[{"id":"fc67cc96-c3e9-44a9-ba78-0aa47857e411","photo":null,"title":"titleTest2","author":"authorTest2","owner":"ownerTest2","isAvailable":true,"borrower":null},{"id":"285c2ed1-e0ca-44ed-b28b-894a1cf533dc","photo":"photoTest2","title":"titleTest2","author":"authorTest2","owner":"ownerTest2","isAvailable":false,"borrower":"borrowerTest1"}]
